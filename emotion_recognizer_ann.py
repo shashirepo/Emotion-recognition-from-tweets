@@ -40,7 +40,7 @@ def cleaning(text):
                 index = j
         txt = np.delete(txt, index)
         if len(txt) == 0:
-            return 'no text'
+            return 'Text is not available'
         else:
             words = txt[0]
             for k in range(len(txt)-1):
@@ -48,7 +48,7 @@ def cleaning(text):
             txt = words
             txt = re.sub(r'[^\w]', ' ', txt)
             if len(txt) == 0:
-                return 'no text'
+                return 'Text is not available'
             else:
                 txt = ''.join(''.join(s)[:2] for _, s in itertools.groupby(txt))
                 txt = txt.replace("'", "")
@@ -57,7 +57,7 @@ def cleaning(text):
                 for j in range(len(txt)):
                     txt[j] = lem.lemmatize(txt[j], "v")
                 if len(txt) == 0:
-                    return 'no text'
+                    return 'Text is not available'
                 else:
                     return txt
                 
